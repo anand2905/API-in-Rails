@@ -26,10 +26,9 @@ class Api::V1::PostsController < ApplicationController
 	end
 
 	private
-
 	def post_params
 		params.permit(:title, :content)
-		end
 	end
+end
 
 
