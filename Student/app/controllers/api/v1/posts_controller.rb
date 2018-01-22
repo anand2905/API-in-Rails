@@ -2,9 +2,9 @@ class Api::V1::PostsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
 	def index
-		@user = User.find(params[:user_id])
-		@posts =@user.posts.all
-		render json: {post: JSONAPI::Serializer.serialize(@posts,serializer: PostSerializer, is_collection: true),status: 200}
+	  @user = User.find(params[:user_id])
+	  @posts =@user.posts.all
+	  render json: {post: JSONAPI::Serializer.serialize(@posts,serializer: PostSerializer, is_collection: true),status: 200}
 	end
 
 	def show
@@ -26,6 +26,7 @@ class Api::V1::PostsController < ApplicationController
 	end
 
 	private
+
 	def post_params
 		params.permit(:title, :content)
 	end
